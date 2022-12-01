@@ -5485,5 +5485,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6365422456913789884, guid: 45bed5af2305cf244af5de0d1c1bc28e, type: 3}
+      propertyPath: movementFilter.layerMask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45bed5af2305cf244af5de0d1c1bc28e, type: 3}

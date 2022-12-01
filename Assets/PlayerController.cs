@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public SwordAttack swordAttack;
     bool canMove = true;
     SpriteRenderer spriteRenderer;
     Vector2 movementInput;
@@ -90,6 +91,24 @@ public class PlayerController : MonoBehaviour
 
     void OnFire(){
         animator.SetTrigger("AttackSword");
+    }
+
+    public void Swing()
+    {
+        LockMovement();
+        if(spriteRenderer.flipX == true)
+        {
+        swordAttack.AttackLeft();
+        }
+        else{
+        swordAttack.AttackRight();
+        }
+    }
+
+    public void EndAttack()
+    {
+        UnlockMovement();
+        swordAttack.StopAttack();
     }
 
     void LockMovement()

@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-
+    bool canMove = true;
     SpriteRenderer spriteRenderer;
     Vector2 movementInput;
     public float moveSpeed = 1f;
@@ -28,33 +28,35 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(movementInput != Vector2.zero)//If there is a movement input, try to move the player
-        {
-            bool success = TryToMove(movementInput);
-
-            if(!success)
+        if(canMove){
+            if(movementInput != Vector2.zero)//If there is a movement input, try to move the player
             {
-                success = TryToMove(new Vector2(movementInput.x, 0));
+                bool success = TryToMove(movementInput);
 
                 if(!success)
                 {
-                    print("Move");
-                    success = TryToMove(new Vector2(0, movementInput.y));
-                }
-            }
-            animator.SetBool("IsMoving", success);
-        }
-        else{
-            animator.SetBool("IsMoving", false);
-        }
+                    success = TryToMove(new Vector2(movementInput.x, 0));
 
-        //Set the direction of the sprite
-        if(movementInput.x < 0)
-        {
-            spriteRenderer.flipX = true;
-        }
-        else if(movementInput.x > 0){
-            spriteRenderer.flipX = false;
+                    if(!success)
+                    {
+                        print("Move");
+                        success = TryToMove(new Vector2(0, movementInput.y));
+                    }
+                }
+                animator.SetBool("IsMoving", success);
+            }
+            else{
+                animator.SetBool("IsMoving", false);
+            }
+
+            //Set the direction of the sprite
+            if(movementInput.x < 0)
+            {
+                spriteRenderer.flipX = true;
+            }
+            else if(movementInput.x > 0){
+                spriteRenderer.flipX = false;
+            }
         }
     }
 
@@ -84,5 +86,18 @@ public class PlayerController : MonoBehaviour
     void OnMove(InputValue movementValue)
     {
         movementInput = movementValue.Get<Vector2>();
+    }
+
+    void OnFire(){
+        animator.SetTrigger("AttackSword");
+    }
+
+    void LockMovement()
+    {
+        canMove =false;
+    }
+    void UnlockMovement()
+    {
+        canMove = true;
     }
 }

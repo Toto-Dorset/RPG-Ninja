@@ -6,17 +6,23 @@ public class DetectionZone : MonoBehaviour
 {
     public string tagPlayer = "Player";
     public List<Collider2D> detectedObjs = new List<Collider2D>();
-    public Collider2D col;
+    public Collider2D coll;
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == tagPlayer)
+        {
+            detectedObjs.Add(other);
+        }
+        
+    }
 
 
-    void OnTriggerEnter2D(Collider2D collider){
-        if(collider.gameObject.tag == tagPlayer){
-            detectedObjs.Add(collider);
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == tagPlayer)
+        {
+            detectedObjs.Remove(other);
         }
     }
-
-    void OnTriggerExit2D(Collider2D collider){
-        detectedObjs.Remove(collider);
-    }
-
 }

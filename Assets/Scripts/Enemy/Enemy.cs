@@ -7,9 +7,9 @@ public class Enemy : MonoBehaviour
 
     Animator animator;
 
-    public DetectionZone detectionZone;
-
     public float moveSpeed = 500f;
+
+    public DetectionZone detectionZone;
 
     Rigidbody2D rb;
 
@@ -20,11 +20,18 @@ public class Enemy : MonoBehaviour
     }
 
      void FixedUpdate() {
-        if(detectionZone.detectedObjs.Count >= 0){
-            Vector2 direction =(Vector2) (detectionZone.detectedObjs[0].transform.position - transform.position).normalized;
+        if(detectionZone.detectedObjs.Count > 0)
+        {
+            Vector2 direction = (detectionZone.detectedObjs[0].transform.position - transform.position).normalized;
 
             rb.AddForce(direction * moveSpeed * Time.deltaTime);
         }
+        /*if(detectionZone.detectedObjs.Count> 0){
+
+             Vector2 direction =(detectionZone.detectedObjs[0].transform.position - transform.position).normalized;
+
+             rb.AddForce(direction * moveSpeed * Time.deltaTime);
+        }*/
     }
 
     public float Health{

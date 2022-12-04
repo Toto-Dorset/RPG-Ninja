@@ -51941,6 +51941,10 @@ PrefabInstance:
       propertyPath: movementFilter.layerMask.m_Bits
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7169914362457738104, guid: 45bed5af2305cf244af5de0d1c1bc28e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8414134276869168962, guid: 45bed5af2305cf244af5de0d1c1bc28e, type: 3}
       propertyPath: m_SortingLayer
       value: 4

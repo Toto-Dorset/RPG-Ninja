@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, IDamageable
+public class Enemy : MonoBehaviour
 {
 
     Animator animator;
 
     public float moveSpeed = 500f; //set to 500 by default but can be modified in the Inspector in Unity for each enemy
 
-    public DetectionZone detectionZone;
+    public DetectionZone detectionZone;//if the player is inside, the enemy move to him
 
     Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
@@ -62,41 +62,4 @@ public class Enemy : MonoBehaviour, IDamageable
             damageable.TakeDamage(damage);
         }
     }
-
-    public float Health{
-
-        set{health=value;
-        if(health <= 0)
-        {
-            Die();
-        }}
-        get{return health;
-        }
-    }
-
-    public float health = 1;
-
-    public void TakeDamage(float damage)
-    {
-        animator.SetTrigger("hit");
-        Health -= damage;
-
-        /* if(health <= 0)
-        {
-            Die();
-        } */
-    }
-
-    public void TakeDamage(float damage, Vector2 knockback)
-    {
-        animator.SetTrigger("hit");
-        Health -= damage;
-        rb.AddForce(knockback);
-    }  
-
-    public void Die()
-    {
-        Destroy(gameObject);
-    }
-
 }

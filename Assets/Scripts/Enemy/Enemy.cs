@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
+    public float damage = 1f;
 
 
     private void Start() {
@@ -45,6 +46,21 @@ public class Enemy : MonoBehaviour, IDamageable
             animator.SetBool("IsMoving", false);
         }
 
+    }
+
+    /// <summary>
+    /// Sent when an incoming collider makes contact with this object's
+    /// collider (2D physics only).
+    /// </summary>
+    /// <param name="other">The Collision2D data associated with this collision.</param>
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        IDamageable damageable = other.collider.GetComponent<IDamageable>();
+
+        if(damageable != null)
+        {
+            damageable.TakeDamage(damage);
+        }
     }
 
     public float Health{

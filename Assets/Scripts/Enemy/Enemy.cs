@@ -12,11 +12,13 @@ public class Enemy : MonoBehaviour, IDamageable
     public DetectionZone detectionZone;
 
     Rigidbody2D rb;
+    SpriteRenderer spriteRenderer;
 
 
     private void Start() {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
      void FixedUpdate() {
@@ -25,6 +27,15 @@ public class Enemy : MonoBehaviour, IDamageable
         {
             Vector2 direction = (detectionZone.detectedObjs[0].transform.position - transform.position).normalized;
             animator.SetBool("IsMoving", true);
+
+            if(direction.x < 0)//flip the enemy to watch in the player direction
+            {
+                spriteRenderer.flipX = true;
+            }
+            else
+            {
+                spriteRenderer.flipX = false;
+            }
             rb.AddForce(direction * moveSpeed * Time.deltaTime);
             //rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime); //try another way to move to compare
         }
@@ -54,14 +65,15 @@ public class Enemy : MonoBehaviour, IDamageable
         animator.SetTrigger("hit");
         Health -= damage;
 
-        if(health <= 0)
+        /* if(health <= 0)
         {
             Die();
-        }
+        } */
     }
 
     public void TakeDamage(float damage, Vector2 knockback)
     {
+        animator.SetTrigger("hit");
         Health -= damage;
         rb.AddForce(knockback);
     }  

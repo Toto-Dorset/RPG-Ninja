@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IDamageable
 {
 
     Animator animator;
 
-    public float moveSpeed = 500f;
+    public float moveSpeed = 500f; //set to 500 by default but can be modified in the Inspector in Unity for each enemy
 
     public DetectionZone detectionZone;
 
@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
             Vector2 direction = (detectionZone.detectedObjs[0].transform.position - transform.position).normalized;
             animator.SetBool("IsMoving", true);
             rb.AddForce(direction * moveSpeed * Time.deltaTime);
+            //rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime); //try another way to move to compare
         }
         //If the player is not in range, the enemy stay with the idle animation 
         if(detectionZone.detectedObjs.Count == 0)
@@ -51,15 +52,23 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         animator.SetTrigger("hit");
-        health -= damage;
+        Health -= damage;
 
         if(health <= 0)
         {
             Die();
         }
     }
+
+    public void TakeDamage(float damage, Vector2 knockback)
+    {
+        Health -= damage;
+        rb.AddForce(knockback);
+    }  
+
     public void Die()
     {
         Destroy(gameObject);
     }
+
 }

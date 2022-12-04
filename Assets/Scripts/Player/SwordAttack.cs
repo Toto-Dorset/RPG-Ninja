@@ -7,6 +7,7 @@ public class SwordAttack : MonoBehaviour
     public Collider2D swordCollider;
     Vector2 rightAttackOffset;
     public float swordDamage = 2;
+    public float knockbackPower = 1500f;
 
     // Start is called before the first frame update
     void Start()
@@ -32,17 +33,35 @@ public class SwordAttack : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+        //can attack all things declared as "Damageable" with the tag
+        if (other.tag == "Damageable")
+        {
+            IDamageable damageable = other.GetComponent<IDamageable>();
 
-         if(other.tag == "Enemy")
+            if(damageable != null)
+            {
+                Vector3 parentPosition = gameObject.GetComponentInParent<Transform>().position;
+                Vector2 direction = (Vector2) (other.gameObject.transform.position - gameObject.GetComponentInParent<Transform>().position).normalized;
+                Vector2 knockback = direction * knockbackPower;
+
+                damageable.TakeDamage(swordDamage, knockback);
+            }
+            else{
+                Debug.LogWarning("Does not implement IDamageable");
+            }
+        }
+        
+        //Old script to attack without knockback and only enemy
+        /*  if(other.tag == "Enemy")
          {
             //deal damage to the enemy only if he has the tag
             Enemy enemy = other.GetComponent<Enemy>();
             if(enemy!=null)
             {
-                print("takeDamageCall");
+                
                 enemy.TakeDamage(swordDamage);
             }
-        }
+        } */
          
     }
 

@@ -78,7 +78,6 @@ GameObject:
   - component: {fileID: 7476910633711297529}
   - component: {fileID: 8462930928602600603}
   - component: {fileID: 7645531957642187629}
-  - component: {fileID: 711702955763913342}
   m_Layer: 0
   m_Name: RedChicken
   m_TagString: Enemy
@@ -215,7 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 500
   detectionZone: {fileID: 8437252690076377079}
-  health: 4
+  health: 200
 --- !u!95 &7645531957642187629
 Animator:
   serializedVersion: 4
@@ -236,15 +235,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &711702955763913342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4370612326609539658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 828bccbc1af54d741ac26ba2027a4692, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

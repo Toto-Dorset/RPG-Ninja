@@ -20,18 +20,19 @@ public class Enemy : MonoBehaviour
     }
 
      void FixedUpdate() {
+        //if the player is in range, the enemy move to the player with the run animation
         if(detectionZone.detectedObjs.Count > 0)
         {
             Vector2 direction = (detectionZone.detectedObjs[0].transform.position - transform.position).normalized;
-
+            animator.SetBool("IsMoving", true);
             rb.AddForce(direction * moveSpeed * Time.deltaTime);
         }
-        /*if(detectionZone.detectedObjs.Count> 0){
+        //If the player is not in range, the enemy stay with the idle animation 
+        if(detectionZone.detectedObjs.Count == 0)
+        {
+            animator.SetBool("IsMoving", false);
+        }
 
-             Vector2 direction =(detectionZone.detectedObjs[0].transform.position - transform.position).normalized;
-
-             rb.AddForce(direction * moveSpeed * Time.deltaTime);
-        }*/
     }
 
     public float Health{

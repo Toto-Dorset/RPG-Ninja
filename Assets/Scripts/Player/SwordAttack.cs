@@ -33,6 +33,7 @@ public class SwordAttack : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+        Debug.Log("Sword touch");
         //can attack all things declared as "Damageable" with the tag
         if (other.tag == "Damageable")
         {

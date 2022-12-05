@@ -51740,6 +51740,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1928446601041512876, guid: 5fd31b211b381c5479032234be5ea8a0, type: 3}
+      propertyPath: _health
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2068157664330652285, guid: 5fd31b211b381c5479032234be5ea8a0, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -51814,7 +51818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6936497559208299827, guid: 5fd31b211b381c5479032234be5ea8a0, type: 3}
       propertyPath: m_Mass
-      value: 0.025582045
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6936497559208299827, guid: 5fd31b211b381c5479032234be5ea8a0, type: 3}
       propertyPath: m_BodyType
@@ -51822,7 +51826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6936497559208299827, guid: 5fd31b211b381c5479032234be5ea8a0, type: 3}
       propertyPath: m_LinearDrag
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6936497559208299827, guid: 5fd31b211b381c5479032234be5ea8a0, type: 3}
       propertyPath: m_Constraints
@@ -51830,7 +51834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6936497559208299827, guid: 5fd31b211b381c5479032234be5ea8a0, type: 3}
       propertyPath: m_UseAutoMass
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6936497559208299827, guid: 5fd31b211b381c5479032234be5ea8a0, type: 3}
       propertyPath: m_GravityScale
@@ -51843,6 +51847,10 @@ PrefabInstance:
     - target: {fileID: 8462930928602600603, guid: 5fd31b211b381c5479032234be5ea8a0, type: 3}
       propertyPath: health
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8462930928602600603, guid: 5fd31b211b381c5479032234be5ea8a0, type: 3}
+      propertyPath: moveSpeed
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fd31b211b381c5479032234be5ea8a0, type: 3}
@@ -51860,6 +51868,10 @@ PrefabInstance:
     - target: {fileID: 1754395813138284397, guid: 45bed5af2305cf244af5de0d1c1bc28e, type: 3}
       propertyPath: m_DefaultActionMap
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792688573419276912, guid: 45bed5af2305cf244af5de0d1c1bc28e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2625047797441041425, guid: 45bed5af2305cf244af5de0d1c1bc28e, type: 3}
       propertyPath: m_RootOrder
@@ -51909,6 +51921,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4148323162655979738, guid: 45bed5af2305cf244af5de0d1c1bc28e, type: 3}
+      propertyPath: _health
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5093565402237840661, guid: 45bed5af2305cf244af5de0d1c1bc28e, type: 3}
       propertyPath: m_Size.x
       value: 0.16
@@ -51926,8 +51942,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5164745569955401903, guid: 45bed5af2305cf244af5de0d1c1bc28e, type: 3}
+      propertyPath: swordDamage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5164745569955401903, guid: 45bed5af2305cf244af5de0d1c1bc28e, type: 3}
       propertyPath: knockbackPower
-      value: 1500
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 6365422456913789884, guid: 45bed5af2305cf244af5de0d1c1bc28e, type: 3}
       propertyPath: moveSpeed
@@ -51943,6 +51963,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7169914362457738104, guid: 45bed5af2305cf244af5de0d1c1bc28e, type: 3}
       propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794805299018320216, guid: 45bed5af2305cf244af5de0d1c1bc28e, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8414134276869168962, guid: 45bed5af2305cf244af5de0d1c1bc28e, type: 3}
@@ -51972,15 +51996,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1022449731412147774, guid: f5167878fd2795d4680445796e2d6fbc, type: 3}
       propertyPath: m_Mass
-      value: 0.49386087
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1022449731412147774, guid: f5167878fd2795d4680445796e2d6fbc, type: 3}
       propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1022449731412147774, guid: f5167878fd2795d4680445796e2d6fbc, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022449731412147774, guid: f5167878fd2795d4680445796e2d6fbc, type: 3}
       propertyPath: m_LinearDrag
-      value: 80
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1022449731412147774, guid: f5167878fd2795d4680445796e2d6fbc, type: 3}
       propertyPath: m_Constraints
@@ -51988,14 +52016,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1022449731412147774, guid: f5167878fd2795d4680445796e2d6fbc, type: 3}
       propertyPath: m_UseAutoMass
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1022449731412147774, guid: f5167878fd2795d4680445796e2d6fbc, type: 3}
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1472757843007821435, guid: f5167878fd2795d4680445796e2d6fbc, type: 3}
+      propertyPath: damage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472757843007821435, guid: f5167878fd2795d4680445796e2d6fbc, type: 3}
       propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472757843007821435, guid: f5167878fd2795d4680445796e2d6fbc, type: 3}
+      propertyPath: moveSpeed
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3517526264721839530, guid: f5167878fd2795d4680445796e2d6fbc, type: 3}
@@ -52004,11 +52040,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3517526264721839530, guid: f5167878fd2795d4680445796e2d6fbc, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3517526264721839530, guid: f5167878fd2795d4680445796e2d6fbc, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3517526264721839530, guid: f5167878fd2795d4680445796e2d6fbc, type: 3}
       propertyPath: m_LocalScale.z
@@ -52062,6 +52098,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5127597438187330649, guid: f5167878fd2795d4680445796e2d6fbc, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5357138721057769928, guid: f5167878fd2795d4680445796e2d6fbc, type: 3}
       propertyPath: m_SortingLayer
       value: 4
@@ -52081,6 +52121,10 @@ PrefabInstance:
     - target: {fileID: 6984059944117469466, guid: f5167878fd2795d4680445796e2d6fbc, type: 3}
       propertyPath: m_TagString
       value: Damageable
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772584668041585784, guid: f5167878fd2795d4680445796e2d6fbc, type: 3}
+      propertyPath: _health
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8561196903257012710, guid: f5167878fd2795d4680445796e2d6fbc, type: 3}
       propertyPath: m_Radius

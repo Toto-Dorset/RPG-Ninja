@@ -10,16 +10,19 @@ public class DamageableCharacters : MonoBehaviour, IDamageable
 
     public float Health{
 
-        set{health=value;
-        if(health <= 0)
+        set{_health=value;
+        if(_health <= 0)
         {
-            Die();
+            if(animator.gameObject.tag == "Player")
+                animator.SetTrigger("death");
+            else
+                Die();
         }}
-        get{return health;
+        get{return _health;
         }
     }
 
-    public float health = 1;
+    public float _health = 1;
 
 
     private void Start() {
@@ -32,15 +35,11 @@ public class DamageableCharacters : MonoBehaviour, IDamageable
     {
         animator.SetTrigger("hit");
         Health -= damage;
-
-        /* if(health <= 0)
-        {
-            Die();
-        } */
     }
 
     public void TakeDamage(float damage, Vector2 knockback)
     {
+        Debug.Log("TakeDamage function is called");
         animator.SetTrigger("hit");
         Health -= damage;
         rb.AddForce(knockback);

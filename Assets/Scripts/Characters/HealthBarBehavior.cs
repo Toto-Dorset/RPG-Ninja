@@ -8,7 +8,7 @@ public class HealthBarBehavior : MonoBehaviour
     public Slider Slider;
     public Color low;
     public Color high;
-    public Vector3 Offset = new Vector3(0,10000,0);
+    public Vector3 Offset = new Vector3(0,1,0);
 
 
     public void SetHealth(float health, float maxHealth)

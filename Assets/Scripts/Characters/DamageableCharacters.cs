@@ -19,7 +19,7 @@ public class DamageableCharacters : MonoBehaviour, IDamageable
         if (value < _health)
         {
             animator.SetTrigger("hit");
-            healthBarBehavior.SetHealth(_health, maxHealth);
+            healthBarBehavior.SetHealth(value, maxHealth);
             RectTransform txtTransform = Instantiate(damageText).GetComponent<RectTransform>();
             txtTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
             Canvas canvas = GameObject.FindObjectOfType<Canvas>();

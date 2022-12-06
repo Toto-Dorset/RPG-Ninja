@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     SpriteRenderer spriteRenderer;
     public float damage = 1f;
 
+    public float knockbackPower = 300f;
+
 
     private void Start() {
         animator = GetComponent<Animator>();
@@ -59,7 +61,10 @@ public class Enemy : MonoBehaviour
 
         if(damageable != null)
         {
-            damageable.TakeDamage(damage);
+            Vector3 parentPosition = gameObject.GetComponentInParent<Transform>().position;
+            Vector2 direction = (Vector2) (other.gameObject.transform.position - gameObject.GetComponentInParent<Transform>().position).normalized;
+            Vector2 knockback = direction * knockbackPower;
+            damageable.TakeDamage(damage, knockback);
         }
     }
 }

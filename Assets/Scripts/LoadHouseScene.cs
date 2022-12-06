@@ -13,7 +13,6 @@ public class LoadHouseScene : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other) {
 
-        print(other.GetType());
         if(other.gameObject.name == "Player")
         {
             SceneManager.LoadScene("House_1");

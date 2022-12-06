@@ -8,9 +8,26 @@ public class DamageableCharacters : MonoBehaviour, IDamageable
     Animator animator;
     Rigidbody2D rb;
 
+    public HealthBarBehavior healthBarBehavior;
+
+    public float maxHealth;
+    [SerializeField] GameObject damageText;
+
     public float Health{
 
-        set{_health=value;
+        set{
+        if (value < _health)
+        {
+            animator.SetTrigger("hit");
+            healthBarBehavior.SetHealth(_health, maxHealth);
+            RectTransform txtTransform = Instantiate(damageText).GetComponent<RectTransform>();
+            txtTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+            Canvas canvas = GameObject.FindObjectOfType<Canvas>();
+            txtTransform.SetParent(canvas.transform);
+        }
+
+        _health=value;
+
         if(_health <= 0)
         {
             if(animator.gameObject.tag == "Player")
@@ -18,7 +35,8 @@ public class DamageableCharacters : MonoBehaviour, IDamageable
             else
                 Die();
         }}
-        get{return _health;
+        get{
+            return _health;
         }
     }
 
@@ -26,21 +44,21 @@ public class DamageableCharacters : MonoBehaviour, IDamageable
 
 
     private void Start() {
+        maxHealth = _health;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        healthBarBehavior.SetHealth(_health, maxHealth);
     }
 
 
     public void TakeDamage(float damage)
     {
-        animator.SetTrigger("hit");
         Health -= damage;
     }
 
     public void TakeDamage(float damage, Vector2 knockback)
     {
         Debug.Log("TakeDamage function is called");
-        animator.SetTrigger("hit");
         Health -= damage;
         rb.AddForce(knockback);
     }  

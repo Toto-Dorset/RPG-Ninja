@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
             {
                 spriteRenderer.flipX = true;
             }
-            else
+            else if(direction.x > 0)
             {
                 spriteRenderer.flipX = false;
             }

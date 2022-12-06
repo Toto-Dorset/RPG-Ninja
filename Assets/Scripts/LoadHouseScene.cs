@@ -15,7 +15,7 @@ public class LoadHouseScene : MonoBehaviour
 
         if(other.gameObject.name == "Player")
         {
-            SceneManager.LoadScene("House_1");
+            //SceneManager.LoadScene("House_1");
         }
     }
 }

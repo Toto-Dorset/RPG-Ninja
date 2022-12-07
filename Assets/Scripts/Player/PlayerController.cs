@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+//script to move the player 
 public class PlayerController : MonoBehaviour
 {
     public SwordAttack swordAttack;
@@ -33,18 +34,18 @@ public class PlayerController : MonoBehaviour
         if(canMove){
             if(movementInput != Vector2.zero)//If there is a movement input, try to move the player
             {
-                bool success = TryToMove(movementInput);
+                bool success = TryToMove(movementInput);//try to move with all input
 
                 if(!success)
                 {
-                    success = TryToMove(new Vector2(movementInput.x, 0));
+                    success = TryToMove(new Vector2(movementInput.x, 0));//try to move only with horizontal axis
 
                     if(!success)
                     {
-                        success = TryToMove(new Vector2(0, movementInput.y));
+                        success = TryToMove(new Vector2(0, movementInput.y));//try to move only with vertical axi
                     }
                 }
-                animator.SetBool("IsMoving", success);
+                animator.SetBool("IsMoving", success);//call the animator to animate the player
             }
             else{
                 animator.SetBool("IsMoving", false);
@@ -81,23 +82,19 @@ public class PlayerController : MonoBehaviour
             return false;
         }
         
-    }
-
-    void Interact()
-    {
-        //var facingDirection;
-    }
-    
-
+    } 
+    //when there is an input, get the vector of the input
     void OnMove(InputValue movementValue)
     {
         movementInput = movementValue.Get<Vector2>();
     }
 
+    //when there is an input for fire, set animation "AttackSword" who call the Swing function
     void OnFire(){
         animator.SetTrigger("AttackSword");
     }
 
+    //attack with the sword in the right direction
     public void Swing()
     {
         LockMovement();
@@ -110,16 +107,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //function call at the end of the attack animation
     public void EndAttack()
     {
         swordAttack.StopAttack();
         UnlockMovement();
     }
 
+    //lock the movement of the player
     void LockMovement()
     {
         canMove =false;
     }
+    //unlock the movement of the player
     void UnlockMovement()
     {
         canMove = true;

@@ -50,11 +50,7 @@ public class Enemy : MonoBehaviour
 
     }
 
-    /// <summary>
-    /// Sent when an incoming collider makes contact with this object's
-    /// collider (2D physics only).
-    /// </summary>
-    /// <param name="other">The Collision2D data associated with this collision.</param>
+    //if the enemy touch a damageable characters, calcul the vector to inflict a knockback and hit him
     void OnCollisionEnter2D(Collision2D other)
     {
         IDamageable damageable = other.collider.GetComponent<IDamageable>();

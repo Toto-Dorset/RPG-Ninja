@@ -40123,26 +40123,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1516107516}
   - component: {fileID: 1516107515}
-  - component: {fileID: 1516107514}
+  - component: {fileID: 1516107517}
   m_Layer: 0
-  m_Name: House_Entry
+  m_Name: Donjon_Entry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1516107514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516107513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1be44c45a0f571a42a2c72adfe0d7309, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1516107515
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40156,7 +40144,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.012105525, y: 0.19126752}
+  m_Offset: {x: 0.002417922, y: 0.119822085}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -40167,7 +40155,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.23977226, y: 0.3172477}
+  m_Size: {x: 0.16227221, y: 0.17435682}
   m_EdgeRadius: 0
 --- !u!4 &1516107516
 Transform:
@@ -40177,13 +40165,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516107513}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.074, y: 0.607, z: 0.0069661234}
+  m_LocalPosition: {x: 2.474, y: -2.263, z: 0.0069661234}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1516107517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516107513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30cfac65fff8c3349912a8a0f7ee5ce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: Donjon
 --- !u!1 &1671208365
 GameObject:
   m_ObjectHideFlags: 0
